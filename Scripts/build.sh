@@ -16,6 +16,11 @@ mkdir -p "$APP_DIR/Contents/Resources"
 cp "$BUILD_DIR/S3Screenshot" "$APP_DIR/Contents/MacOS/S3Screenshot"
 cp Resources/Info.plist "$APP_DIR/Contents/Info.plist"
 
+# Bundle app icon
+if [ -f "Resources/AppIcon.icns" ]; then
+    cp Resources/AppIcon.icns "$APP_DIR/Contents/Resources/AppIcon.icns"
+fi
+
 # Bundle Inter fonts
 if [ -d "Resources/Fonts" ]; then
     cp -r Resources/Fonts "$APP_DIR/Contents/Resources/Fonts"

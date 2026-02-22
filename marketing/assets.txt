@@ -1,0 +1,33 @@
+Screenshot S3 — Marketing Assets
+==================================
+
+Website
+-------
+- Live site: https://website-nu-opal-r1qs2o4uwl.vercel.app
+
+Video Preview (15s)
+-------------------
+- Source: website/video/out/preview.mp4
+- Also deployed at: /preview.mp4 on the live site
+
+Gallery Screenshot (simulated)
+------------------------------
+- Source: website/video/out/gallery-screenshot.png
+- Also deployed at: /gallery-screenshot.png on the live site
+
+Feature Screenshots (1920x1080)
+--------------------------------
+- website/video/out/feature-auto-upload.png  — "Automatic Upload"
+- website/video/out/feature-clipboard.png    — "Link Copied Instantly"
+- website/video/out/feature-gallery.png      — "Built-in Gallery"
+- website/video/out/feature-menu-bar.png     — "Lives in Your Menu Bar"
+- website/video/out/feature-open-source.png  — "100% Open Source"
+
+Source Code
+-----------
+- GitHub: https://github.com/griffincockfoster/s3-screenshot-app
+
+Socials
+-------
+- Twitter: https://x.com/gcockfoster
+- GitHub: https://github.com/griffincockfoster

@@ -1,0 +1,671 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+---
+
+<Layout title="Screenshot S3 — Instant Screenshot Uploads for macOS">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <Logo />
+      <h1>Screenshot S3</h1>
+      <p class="tagline">Automatically upload every screenshot you take to an S3 bucket. Then automatically copy the link to your clipboard.</p>
+      <p class="subtitle">A tiny macOS menu bar app that lives in your menu bar, watches for new screenshots, and handles everything — instantly and silently.</p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download for macOS
+        </a>
+        <a href="https://github.com/griffincockfoster/s3-screenshot-app" class="btn-secondary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Preview -->
+  <section class="video-preview">
+    <div class="container">
+      <div class="glass video-frame">
+        <video autoplay loop muted playsinline>
+          <source src="/preview.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2>Everything you need, nothing you don't</h2>
+      <div class="features-grid">
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3>Automatic Upload</h3>
+          <p>Screenshots are detected and uploaded to S3 the moment they're saved. Zero manual steps.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+          </div>
+          <h3>Clipboard URL</h3>
+          <p>The public link is copied to your clipboard instantly. Just paste it wherever you need it.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Built-in Gallery</h3>
+          <p>Browse all your past uploads in a beautiful gallery. Re-copy links or open them anytime.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Menu Bar Native</h3>
+          <p>Lives quietly in your menu bar. No Dock icon, no windows — just a clean, native macOS experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="gallery-preview">
+    <div class="container">
+      <h2>A beautiful gallery for all your screenshots</h2>
+      <p class="gallery-subtitle">Browse, search, and re-copy links to any screenshot you've ever taken — all from your menu bar.</p>
+      <div class="glass gallery-frame">
+        <img src="/gallery-screenshot.png" alt="Screenshot S3 gallery view showing uploaded screenshots" />
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">1</div>
+          <h3>Take a screenshot</h3>
+          <p>Use macOS shortcuts like <kbd>Cmd+Shift+4</kbd> as you normally would.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-badge">2</div>
+          <h3>Auto upload</h3>
+          <p>Screenshot S3 detects the new file and uploads it to your S3 bucket.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-badge">3</div>
+          <h3>Link copied</h3>
+          <p>The public URL is on your clipboard. Paste and share immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Keys -->
+  <section class="your-keys">
+    <div class="container">
+      <div class="glass your-keys-card">
+        <div class="your-keys-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        </div>
+        <h2>Your keys never leave your machine</h2>
+        <p>Just input your AWS access key and secret key — that's all it takes to get started. Your credentials are stored locally on your Mac and are never sent anywhere except directly to AWS. No middleman, no server, no account to create.</p>
+        <div class="your-keys-steps">
+          <div class="your-keys-step">
+            <div class="your-keys-step-num">1</div>
+            <span>Enter your AWS keys</span>
+          </div>
+          <div class="your-keys-step-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="your-keys-step">
+            <div class="your-keys-step-num">2</div>
+            <span>Pick your S3 bucket</span>
+          </div>
+          <div class="your-keys-step-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="your-keys-step">
+            <div class="your-keys-step-num">3</div>
+            <span>Done — start screenshotting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source -->
+  <section class="open-source">
+    <div class="container">
+      <div class="glass open-source-card">
+        <div class="open-source-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-start)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </div>
+        <h2>Completely open source</h2>
+        <p>Screenshot S3 is 100% open source. Inspect the code, contribute features, or fork it and make it your own. No tracking, no telemetry, no hidden anything.</p>
+        <a href="https://github.com/griffincockfoster/s3-screenshot-app" class="btn-secondary" target="_blank" rel="noopener">
+          View the source on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="glass download-card">
+        <h2>Ready to streamline your screenshots?</h2>
+        <p>Free, open source, and built for macOS.</p>
+        <div class="download-actions">
+          <a href="https://github.com/griffincockfoster/s3-screenshot-app/releases/latest" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download DMG
+          </a>
+          <a href="https://github.com/griffincockfoster/s3-screenshot-app" class="btn-secondary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made by <a href="https://github.com/griffincockfoster" target="_blank" rel="noopener">Griffin Cockfoster</a></p>
+      <div class="footer-links">
+        <a href="https://x.com/gcockfoster" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter
+        </a>
+        <a href="https://github.com/griffincockfoster" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-top: 28px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Video Preview */
+  .video-preview {
+    padding: 0 0 80px;
+  }
+
+  .video-frame {
+    padding: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .video-frame video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* Features */
+  .features {
+    padding: 80px 0;
+  }
+
+  .features h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 48px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 28px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* How It Works */
+  .how-it-works {
+    padding: 80px 0;
+  }
+
+  .how-it-works h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 48px;
+  }
+
+  .steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .step {
+    text-align: center;
+    flex: 1;
+    max-width: 260px;
+    padding: 0 16px;
+  }
+
+  .step-badge {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .step kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-family: 'Inter', monospace;
+    font-weight: 600;
+    color: var(--primary-start);
+    background: rgba(102, 126, 234, 0.12);
+    border-radius: 4px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+  }
+
+  .step-connector {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--glass-border), rgba(102, 126, 234, 0.3), var(--glass-border));
+    margin-top: 24px;
+    flex-shrink: 0;
+  }
+
+  /* Gallery Preview */
+  .gallery-preview {
+    padding: 80px 0;
+  }
+
+  .gallery-preview h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .gallery-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .gallery-frame {
+    padding: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .gallery-frame img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* Your Keys */
+  .your-keys {
+    padding: 40px 0;
+  }
+
+  .your-keys-card {
+    text-align: center;
+    padding: 48px 40px;
+  }
+
+  .your-keys-icon {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .your-keys-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .your-keys-card > p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .your-keys-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .your-keys-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .your-keys-step-num {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .your-keys-step-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Open Source */
+  .open-source {
+    padding: 40px 0 80px;
+  }
+
+  .open-source-card {
+    text-align: center;
+    padding: 48px 40px;
+  }
+
+  .open-source-icon {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .open-source-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .open-source-card p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  /* Download */
+  .download {
+    padding: 80px 0;
+  }
+
+  .download-card {
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .download-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .download-card > p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .download-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .footer p {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .footer a {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footer a:hover {
+    color: white;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+    .tagline {
+      font-size: 17px;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .step-connector {
+      width: 2px;
+      height: 30px;
+      background: linear-gradient(180deg, var(--glass-border), rgba(102, 126, 234, 0.3), var(--glass-border));
+    }
+
+    .features h2,
+    .how-it-works h2,
+    .gallery-preview h2 {
+      font-size: 28px;
+    }
+
+    .open-source-card {
+      padding: 36px 24px;
+    }
+
+    .open-source-card h2 {
+      font-size: 24px;
+    }
+
+    .your-keys-card {
+      padding: 36px 24px;
+    }
+
+    .your-keys-card h2 {
+      font-size: 24px;
+    }
+
+    .your-keys-steps {
+      flex-direction: column;
+    }
+
+    .your-keys-step-arrow {
+      transform: rotate(90deg);
+    }
+
+    .download-card {
+      padding: 40px 24px;
+    }
+
+    .download-card h2 {
+      font-size: 24px;
+    }
+  }
+</style>
