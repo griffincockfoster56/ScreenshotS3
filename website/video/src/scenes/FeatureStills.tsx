@@ -385,7 +385,7 @@ export const Feature5_OpenSource: React.FC = () => {
         </div>
 
         <div style={{ fontSize: 16, color: "rgba(255,255,255,0.35)" }}>
-          github.com/griffincockfoster/s3-screenshot-app
+          github.com/griffincockfoster56/ScreenshotS3
         </div>
       </div>
     </FeatureLayout>

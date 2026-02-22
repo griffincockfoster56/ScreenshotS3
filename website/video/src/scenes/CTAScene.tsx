@@ -42,7 +42,7 @@ export const CTAScene: React.FC = () => {
             color: "rgba(255,255,255,0.5)",
           }}
         >
-          github.com/griffincockfoster/s3-screenshot-app
+          github.com/griffincockfoster56/ScreenshotS3
         </div>
       </div>
     </Background>

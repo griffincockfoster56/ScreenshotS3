@@ -3,11 +3,11 @@ Screenshot S3 — Launch Tweet Thread
 
 --- Tweet 1 ---
 
-Just shipped Screenshot S3 — a tiny macOS menu bar app that automatically uploads every screenshot you take to an S3 bucket and copies the link to your clipboard.
+I want to announce my weekend Claude Code project — ScreenshotS3!
 
-Free, open source, built in a weekend with Claude Code.
+It's a Mac app that runs in the background, automatically detects screenshots on your computer, uploads them to S3, and copies a publicly viewable URL to your clipboard.
 
-https://www.screenshots3.xyz
+Free and open source: https://www.screenshots3.xyz
 
 --- Tweet 2 ---
 
@@ -47,4 +47,4 @@ The whole thing is a SwiftUI app with zero external dependencies. Just Apple fra
 Check it out, it's completely free:
 
 https://www.screenshots3.xyz
-https://github.com/griffincockfoster/s3-screenshot-app
+https://github.com/griffincockfoster56/ScreenshotS3

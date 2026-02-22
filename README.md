@@ -1,6 +1,8 @@
-# S3 Screenshot
+# ScreenshotS3
 
 A lightweight macOS menu bar app that automatically uploads screenshots to Amazon S3 and copies the public URL to your clipboard.
+
+**Website:** [screenshots3.xyz](https://www.screenshots3.xyz)
 
 ## Features
 
@@ -9,25 +11,23 @@ A lightweight macOS menu bar app that automatically uploads screenshots to Amazo
 - **Gallery** — browse all uploaded screenshots with thumbnails, copy URLs, or open in browser
 - **Simple setup** — enter your AWS credentials, pick or create a bucket, and you're done
 - **Menu bar native** — lives in your menu bar, stays out of the way
+- **Your keys stay local** — credentials never leave your machine, no telemetry, no third-party dependencies
 
-## Requirements
+## Install
 
-- macOS 13+
-- Swift 5.7+
-- An AWS account with S3 access
+### Download (recommended)
 
-## Build
+Download the latest DMG from the website: **[screenshots3.xyz](https://www.screenshots3.xyz)**
+
+Or grab it from [GitHub Releases](https://github.com/griffincockfoster56/ScreenshotS3/releases/latest).
+
+### Build from source
+
+Requires macOS 13+ and Swift 5.7+.
 
 ```bash
 swift build -c release
 bash Scripts/build.sh
-```
-
-The app bundle is created at `.build/release/S3 Screenshot.app`.
-
-## Install
-
-```bash
 cp -r ".build/release/S3 Screenshot.app" /Applications/
 ```
 
