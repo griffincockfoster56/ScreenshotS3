@@ -132,8 +132,6 @@ private struct OverlayContentView: View {
     @State private var shimmer = false
     @State private var spinAngle: Double = 0
     @State private var arrowPulse = false
-    @State private var copied = false
-
     private var accentColors: (primary: Color, secondary: Color) {
         switch viewModel.state {
         case .uploading:
@@ -255,44 +253,14 @@ private struct OverlayContentView: View {
                     .foregroundColor(.white.opacity(0.45))
             }
 
-        case .success(let url):
-            VStack(alignment: .leading, spacing: 8) {
+        case .success:
+            VStack(alignment: .leading, spacing: 3) {
                 Text("Screenshot Uploaded!")
                     .font(.custom("Inter-SemiBold", size: 15))
                     .foregroundColor(.white)
-
-                HStack(spacing: 10) {
-                    Text(truncateURL(url))
-                        .font(.custom("Inter", size: 11))
-                        .foregroundColor(.white.opacity(0.45))
-                        .lineLimit(1)
-
-                    Button(action: copyLink) {
-                        HStack(spacing: 5) {
-                            Image(systemName: copied ? "checkmark" : "doc.on.doc")
-                                .font(.system(size: 10, weight: .semibold))
-                            Text(copied ? "Copied!" : "Copy Link")
-                                .font(.custom("Inter-SemiBold", size: 11))
-                        }
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 5)
-                        .background(
-                            Capsule().fill(
-                                copied
-                                    ? LinearGradient(
-                                        colors: [Color(hex: "34d399"), Color(hex: "059669")],
-                                        startPoint: .leading, endPoint: .trailing
-                                    )
-                                    : LinearGradient(
-                                        colors: [Color(hex: "667eea"), Color(hex: "764ba2")],
-                                        startPoint: .leading, endPoint: .trailing
-                                    )
-                            )
-                        )
-                    }
-                    .buttonStyle(.plain)
-                }
+                Text("Link copied to clipboard")
+                    .font(.custom("Inter", size: 12))
+                    .foregroundColor(.white.opacity(0.45))
             }
 
         case .error(let message):
@@ -344,33 +312,12 @@ private struct OverlayContentView: View {
         }
     }
 
-    // MARK: - Actions
-
-    private func copyLink() {
-        if case .success(let url) = viewModel.state {
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(url, forType: .string)
-            withAnimation(.easeInOut(duration: 0.2)) { copied = true }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation(.easeInOut(duration: 0.2)) { copied = false }
-            }
-        }
-    }
-
-    private func truncateURL(_ url: String) -> String {
-        guard url.count > 34 else { return url }
-        let start = url.prefix(20)
-        let end = url.suffix(12)
-        return "\(start)...\(end)"
-    }
-
     // MARK: - State Transitions
 
     private func onStateChange() {
         // Reset animation states
         iconBounce = false
         shimmer = false
-        copied = false
 
         switch viewModel.state {
         case .uploading:

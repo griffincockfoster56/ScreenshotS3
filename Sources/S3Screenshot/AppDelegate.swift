@@ -1,4 +1,5 @@
 import Cocoa
+import ServiceManagement
 import SwiftUI
 import UserNotifications
 
@@ -14,6 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         FontRegistration.registerBundledFonts()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { _, _ in }
+
+        if settingsManager.launchAtLogin {
+            try? SMAppService.mainApp.register()
+        }
 
         setupMainMenu()
         setupStatusItem()

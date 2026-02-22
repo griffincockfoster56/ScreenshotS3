@@ -1,4 +1,5 @@
 import AppKit
+import ServiceManagement
 import SwiftUI
 
 // MARK: - Hex Color
@@ -414,6 +415,7 @@ struct SettingsView: View {
     @State private var isSaving = false
     @State private var errorMessage: String?
     @State private var buttonHovered = false
+    @State private var launchAtLogin = true
 
     var onSave: (() -> Void)?
 
@@ -535,6 +537,45 @@ struct SettingsView: View {
                             .transition(.opacity.combined(with: .move(edge: .top)))
                         }
 
+                        // Launch at login toggle
+                        animatedField(index: 5) {
+                            HStack(spacing: 12) {
+                                Image(systemName: "sunrise.fill")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.white.opacity(0.4))
+                                    .frame(width: 20)
+
+                                Text("Launch at login")
+                                    .font(.custom("Inter", size: 14))
+                                    .foregroundColor(.white)
+
+                                Spacer()
+
+                                Toggle("", isOn: $launchAtLogin)
+                                    .toggleStyle(.switch)
+                                    .labelsHidden()
+                                    .onChange(of: launchAtLogin) { newValue in
+                                        SettingsManager.shared.launchAtLogin = newValue
+                                        if newValue {
+                                            try? SMAppService.mainApp.register()
+                                        } else {
+                                            try? SMAppService.mainApp.unregister()
+                                        }
+                                    }
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.white.opacity(0.06))
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.08), lineWidth: 1)
+                            )
+                        }
+                        .padding(.top, 16)
+
                         Spacer(minLength: 24)
 
                         saveButton
@@ -548,11 +589,66 @@ struct SettingsView: View {
                             .opacity(appeared ? 1 : 0)
                     }
 
+                    // Pro tips card
+                    animatedField(index: 6) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "lightbulb.fill")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(Color(hex: "f4c542"))
+                                Text("Pro Tips")
+                                    .font(.custom("Inter-SemiBold", size: 12.5))
+                                    .foregroundColor(.white.opacity(0.6))
+                            }
+
+                            VStack(alignment: .leading, spacing: 8) {
+                                HStack(spacing: 8) {
+                                    Text("Cmd+G")
+                                        .font(.custom("Inter-SemiBold", size: 11))
+                                        .foregroundColor(Color(hex: "93a3f8"))
+                                        .padding(.horizontal, 7)
+                                        .padding(.vertical, 3)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 5)
+                                                .fill(Color(hex: "667eea").opacity(0.15))
+                                        )
+                                    Text("Open the Gallery to browse past uploads")
+                                        .font(.custom("Inter", size: 12))
+                                        .foregroundColor(.white.opacity(0.45))
+                                }
+                                HStack(spacing: 8) {
+                                    Text("Cmd+,")
+                                        .font(.custom("Inter-SemiBold", size: 11))
+                                        .foregroundColor(Color(hex: "93a3f8"))
+                                        .padding(.horizontal, 7)
+                                        .padding(.vertical, 3)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 5)
+                                                .fill(Color(hex: "667eea").opacity(0.15))
+                                        )
+                                    Text("Open Settings from the menu bar")
+                                        .font(.custom("Inter", size: 12))
+                                        .foregroundColor(.white.opacity(0.45))
+                                }
+                            }
+                        }
+                        .padding(16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.white.opacity(0.03))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.white.opacity(0.06), lineWidth: 1)
+                                )
+                        )
+                    }
+                    .padding(.top, 16)
+
                     // Help section at bottom
-                    animatedField(index: 5) {
+                    animatedField(index: 7) {
                         InstructionsCard(isExpanded: $instructionsExpanded)
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 12)
                 }
                 .padding(.horizontal, 36)
                 .padding(.bottom, 24)
@@ -729,6 +825,7 @@ struct SettingsView: View {
         if let saved = s.bucketName, !saved.isEmpty {
             newBucketName = saved
         }
+        launchAtLogin = s.launchAtLogin
     }
 
     private func fetchBuckets() {

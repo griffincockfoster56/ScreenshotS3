@@ -34,4 +34,12 @@ class SettingsManager {
         get { defaults.string(forKey: "s3BucketName") }
         set { defaults.set(newValue, forKey: "s3BucketName") }
     }
+
+    var launchAtLogin: Bool {
+        get {
+            if defaults.object(forKey: "launchAtLogin") == nil { return true }
+            return defaults.bool(forKey: "launchAtLogin")
+        }
+        set { defaults.set(newValue, forKey: "launchAtLogin") }
+    }
 }
