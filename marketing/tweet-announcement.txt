@@ -1,0 +1,50 @@
+Screenshot S3 — Launch Tweet Thread
+=====================================
+
+--- Tweet 1 ---
+
+Just shipped Screenshot S3 — a tiny macOS menu bar app that automatically uploads every screenshot you take to an S3 bucket and copies the link to your clipboard.
+
+Free, open source, built in a weekend with Claude Code.
+
+https://www.screenshots3.xyz
+
+--- Tweet 2 ---
+
+Why I built this: I'm constantly sending screenshots to Claude Code in the terminal. Having a way to instantly get a URL for any screenshot I take — without leaving the command line — is a game changer.
+
+Take screenshot → link on clipboard → paste it anywhere. That's it.
+
+--- Tweet 3 ---
+
+Setup takes 2 minutes:
+
+1. Input your AWS access key + secret key
+2. We'll create a new S3 bucket for you, or you can use an existing one
+
+Every screenshot you take from now on gets uploaded automatically and the link lands on your clipboard.
+
+--- Tweet 4 ---
+
+Security was important to me:
+
+- Your AWS keys never leave your machine
+- Credentials go directly to AWS — no middleman server
+- Zero telemetry or analytics
+- No third-party dependencies
+- 100% open source — read every line yourself
+
+--- Tweet 5 ---
+
+It also has a built-in gallery so you can browse all your past uploads, re-copy links, or open them in your browser.
+
+All from the menu bar. No Dock icon, no windows cluttering your workspace.
+
+--- Tweet 6 ---
+
+The whole thing is a SwiftUI app with zero external dependencies. Just Apple frameworks + AWS S3.
+
+Check it out, it's completely free:
+
+https://www.screenshots3.xyz
+https://github.com/griffincockfoster/s3-screenshot-app
