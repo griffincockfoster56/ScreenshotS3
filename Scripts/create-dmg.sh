@@ -8,7 +8,7 @@ BUILD_DIR=".build/release"
 APP_DIR="$BUILD_DIR/$APP_NAME.app"
 DMG_DIR="$BUILD_DIR/dmg-staging"
 DMG_PATH="$BUILD_DIR/$DMG_NAME-$VERSION.dmg"
-DEVELOPER_ID="${DEVELOPER_ID:-Developer ID Application}"
+DEVELOPER_ID="${DEVELOPER_ID:-Developer ID Application: Matterhorn Shopping, LLC (XF9CLAMGYS)}"
 NOTARY_PROFILE="${NOTARY_PROFILE:-S3Screenshot-notary}"
 NO_SIGN=false
 

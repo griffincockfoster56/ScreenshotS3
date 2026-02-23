@@ -4,7 +4,7 @@ set -e
 APP_NAME="S3 Screenshot"
 BUILD_DIR=".build/release"
 APP_DIR="$BUILD_DIR/$APP_NAME.app"
-DEVELOPER_ID="${DEVELOPER_ID:-Developer ID Application}"
+DEVELOPER_ID="${DEVELOPER_ID:-Developer ID Application: Matterhorn Shopping, LLC (XF9CLAMGYS)}"
 NO_SIGN=false
 
 for arg in "$@"; do

@@ -10,3 +10,4 @@ website/.astro/
 website/.vercel/
 website/video/node_modules/
 website/video/out/
+.certs/
