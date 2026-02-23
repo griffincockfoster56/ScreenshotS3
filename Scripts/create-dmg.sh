@@ -8,10 +8,23 @@ BUILD_DIR=".build/release"
 APP_DIR="$BUILD_DIR/$APP_NAME.app"
 DMG_DIR="$BUILD_DIR/dmg-staging"
 DMG_PATH="$BUILD_DIR/$DMG_NAME-$VERSION.dmg"
+DEVELOPER_ID="${DEVELOPER_ID:-Developer ID Application}"
+NOTARY_PROFILE="${NOTARY_PROFILE:-S3Screenshot-notary}"
+NO_SIGN=false
 
-# Step 1: Build the app
+for arg in "$@"; do
+    case $arg in
+        --no-sign) NO_SIGN=true ;;
+    esac
+done
+
+# Step 1: Build the app (pass through --no-sign flag)
 echo "==> Building app..."
-bash Scripts/build.sh
+if [ "$NO_SIGN" = true ]; then
+    bash Scripts/build.sh --no-sign
+else
+    bash Scripts/build.sh
+fi
 
 # Step 2: Prepare DMG staging folder
 echo "==> Preparing DMG contents..."
@@ -33,8 +46,27 @@ hdiutil create \
 # Step 4: Clean up
 rm -rf "$DMG_DIR"
 
+# Step 5: Sign, notarize, and staple the DMG
+if [ "$NO_SIGN" = true ]; then
+    echo "==> Skipping DMG signing and notarization (--no-sign)"
+else
+    echo "==> Signing DMG..."
+    codesign --sign "$DEVELOPER_ID" "$DMG_PATH"
+
+    echo "==> Submitting for notarization (this may take a few minutes)..."
+    xcrun notarytool submit "$DMG_PATH" \
+        --keychain-profile "$NOTARY_PROFILE" \
+        --wait
+
+    echo "==> Stapling notarization ticket..."
+    xcrun stapler staple "$DMG_PATH"
+fi
+
 echo ""
 echo "==> DMG created: $DMG_PATH"
 echo "    Size: $(du -h "$DMG_PATH" | cut -f1)"
+if [ "$NO_SIGN" = false ]; then
+    echo "    Signed and notarized"
+fi
 echo ""
 echo "Users open the DMG and drag '$APP_NAME' into Applications."
