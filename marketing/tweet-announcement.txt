@@ -7,7 +7,7 @@ I want to announce my weekend Claude Code project — ScreenshotS3!
 
 It's a Mac app that runs in the background, automatically detects screenshots on your computer, uploads them to S3, and copies a publicly viewable URL to your clipboard.
 
-Free and open source: https://www.screenshots3.xyz
+Free and open source: https://www.aitwitterfilter.xyz
 
 --- Tweet 2 ---
 
@@ -46,5 +46,5 @@ The whole thing is a SwiftUI app with zero external dependencies. Just Apple fra
 
 Check it out, it's completely free:
 
-https://www.screenshots3.xyz
+https://www.aitwitterfilter.xyz
 https://github.com/griffincockfoster56/ScreenshotS3

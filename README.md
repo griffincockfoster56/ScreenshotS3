@@ -2,7 +2,7 @@
 
 A lightweight macOS menu bar app that automatically uploads screenshots to Amazon S3 and copies the public URL to your clipboard.
 
-**Website:** [screenshots3.xyz](https://www.screenshots3.xyz)
+**Website:** [aitwitterfilter.xyz](https://www.aitwitterfilter.xyz)
 
 ## Features
 
@@ -17,7 +17,7 @@ A lightweight macOS menu bar app that automatically uploads screenshots to Amazo
 
 ### Download (recommended)
 
-Download the latest DMG from the website: **[screenshots3.xyz](https://www.screenshots3.xyz)**
+Download the latest DMG from the website: **[aitwitterfilter.xyz](https://www.aitwitterfilter.xyz)**
 
 Or grab it from [GitHub Releases](https://github.com/griffincockfoster56/ScreenshotS3/releases/latest).
 

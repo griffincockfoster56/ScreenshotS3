@@ -2,9 +2,22 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
 }
 
-const { title, description = "Instantly upload macOS screenshots to S3 and copy the link to your clipboard." } = Astro.props;
+const {
+  title,
+  description = "Instantly upload macOS screenshots to S3 and copy the link to your clipboard. A tiny, open-source macOS menu bar app.",
+  ogImage = "/og-image.png",
+  ogType = "website",
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = "https://www.aitwitterfilter.xyz";
+const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const canonical = canonicalUrl || siteUrl;
 ---
 
 <!doctype html>
@@ -12,12 +25,68 @@ const { title, description = "Instantly upload macOS screenshots to S3 and copy 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Griffin Cockfoster" />
+    <meta name="theme-color" content="#06060f" />
+
+    <!-- OpenGraph / Facebook / LinkedIn -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Screenshot S3 — macOS menu bar app for instant screenshot uploads to S3" />
+    <meta property="og:site_name" content="Screenshot S3" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+    <meta name="twitter:image:alt" content="Screenshot S3 — macOS menu bar app for instant screenshot uploads to S3" />
+    <meta name="twitter:creator" content="@gcockfoster" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <title>{title}</title>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Screenshot S3",
+      "operatingSystem": "macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "description": description,
+      "url": siteUrl,
+      "image": fullOgImage,
+      "author": {
+        "@type": "Person",
+        "name": "Griffin Cockfoster",
+        "url": "https://github.com/griffincockfoster"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://screenshots3-downloads.s3.amazonaws.com/S3Screenshot-1.0.dmg",
+      "softwareVersion": "1.0",
+      "isAccessibleForFree": true
+    })} />
   </head>
   <body>
     <slot />
